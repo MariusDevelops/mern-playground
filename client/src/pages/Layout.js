@@ -18,6 +18,9 @@ const Layout = () => {
             <Link to="/shopingcart">Shoping Cart</Link>
           </li>
           <li>
+            <Link to="/authentication">Authentication</Link>
+          </li>
+          <li>
             <Link to="/blogs">Blogs</Link>
           </li>
           <li>

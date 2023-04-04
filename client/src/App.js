@@ -10,6 +10,8 @@ import NoPage from './pages/NoPage';
 import Redux from './pages/Redux';
 import ShopingCart from './pages/ShopingCart';
 import CartPage from './shoping-cart/pages/CartPage';
+import Authentication from './pages/Authentication';
+import AuthRegister from './authentication/pages/AuthRegister';
 
 function App() {
   return (
@@ -20,7 +22,9 @@ function App() {
           <Route path="props" element={<Props />} />
           <Route path="redux" element={<Redux />} />
           <Route path="shopingcart" element={<ShopingCart />} />
-          <Route path="/cartpage" element={<CartPage />}></Route>
+          <Route path="cartpage" element={<CartPage />}></Route>
+          <Route path="authentication" element={<Authentication />}></Route>
+          <Route path="authregister" element={<AuthRegister />}></Route>
           <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} />

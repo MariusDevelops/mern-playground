@@ -5,12 +5,36 @@ body {
 }
 
 /* CUSTOM */
+.d-flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.j-center {
+  justify-content: center;
+}
+
+.form {
+  width: 400px;
+  padding: 50px;
+}
+
 .p-20 {
   padding: 20px;
 }
 
 .pr-20 {
   padding-right: 20px;
+}
+
+.error {
+  padding: 10px;
+  background-color: #ffe9e9;
+  border: 1px solid darkred;
+  color: darkred;
 }
 
 /* NAVIGATION */
@@ -37,6 +61,8 @@ li {
 .toolbar a {
   margin-right: 20px;
 }
+
+/* AUTHENTICATION */
 
 /* .App {
   text-align: center;

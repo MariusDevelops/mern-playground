@@ -4,7 +4,7 @@ const ShopingCart = () => {
   return (
     <div>
       <CartToolbar />
-      <h1>shoping cart page</h1>
+      <h1>Shoping Cart</h1>
     </div>
   );
 };

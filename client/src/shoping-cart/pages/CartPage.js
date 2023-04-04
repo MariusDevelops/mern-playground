@@ -5,7 +5,7 @@ const CartPage = () => {
   return (
     <div>
       <CartToolbar />
-      <div>CartPage</div>
+      <h1>Cart</h1>
     </div>
   );
 };
