@@ -1,0 +1,32 @@
+build my own full stack CRUD app (my-learning-app) using past lectures. Analyse and comment every step of process.
+
+0. npx create-react-app .
+
+PROPS
+1. Props examples in props page. With object and without.
+
+ROUTER
+1. Build pages with npm i -D react-router-dom. App.js - routes. Pages in pages.
+
+REDUX
+2. Build redux example. 1:00 hour.
+https://codeacademylt.sharepoint.com/sites/TypescriptTYPE13/_layouts/15/stream.aspx?id=%2Fsites%2FTypescriptTYPE13%2FShared%20Documents%2FGeneral%2FRecordings%2FGeneral%2D20230328%5F091806%2DMeeting%20Recording%2Emp4
+npm i redux react-redux @reduxjs/toolkit
+index.js=>
+import { configureStore } from '@reduxjs/toolkit';
+const store = configureStore({
+  reducer: {
+    user: useReducer,
+    color: colorReducer,
+  },
+});
+import { Provider } from 'react-redux';
+    <Provider store={store}>
+      <App />
+    </Provider>
+features folder with users.js -- saugomi steitai.. kaip nori taip vadini ir kiek nori ju tiek saugai.
+import {createSlice} from "@reduxjs/toolkit"; --- store -- storas??? susirask paveiksliuko pavizdi
+index => import userReducer from './features/users';
+page where you want to show your user ---> import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux'; ---> calls update hair.
+import { updateHair } from '../redux-fetures/redux-users';
