@@ -9,10 +9,10 @@ ROUTER
 1. Build pages with npm i -D react-router-dom. App.js - routes. Pages in pages.
 
 REDUX
-1. Build redux example. 1:00 hour.
+0. Build redux example. 1:00 hour.
 https://codeacademylt.sharepoint.com/sites/TypescriptTYPE13/_layouts/15/stream.aspx?id=%2Fsites%2FTypescriptTYPE13%2FShared%20Documents%2FGeneral%2FRecordings%2FGeneral%2D20230328%5F091806%2DMeeting%20Recording%2Emp4
 npm i redux react-redux @reduxjs/toolkit
-2. index.js=>
+1. NUSTATOMA index.js => FAILE, KAD REDUX VEIKTU ANT VISO APPO.
 import { configureStore } from '@reduxjs/toolkit';
 const store = configureStore({
   reducer: {
@@ -24,18 +24,32 @@ import { Provider } from 'react-redux';
     <Provider store={store}>
       <App />
     </Provider>
-3. features folder with users.js -- saugomi steitai.. kaip nori taip vadini ir kiek nori ju tiek saugai.
+2. SUKURIAMAS FAILAS KUR SAUGOMO VISI REDUX STEITAI (kaip useState ir setState).
+features folder with users.js -- saugomi steitai.. kaip nori taip vadini ir kiek nori ju tiek saugai.
 import {createSlice} from "@reduxjs/toolkit"; --- store -- storas??? susirask paveiksliuko pavizdi praituose uzduotyse
 index => import userReducer from './features/users';
-5. page where you want to show your user ---> import { useSelector } from 'react-redux';
-6. import { useDispatch } from 'react-redux'; ---> calls update hair.
+5. KAIP IMPORTUOTI INITIAL STATE I PUSLAPI.
+page where you want to show your user ---> import { useSelector } from 'react-redux';
+6. KAIP IMPORTUOTI UPDATE STATE I PUSLAPI.
+import { useDispatch } from 'react-redux'; ---> calls update hair.
 import { updateHair } from '../redux-fetures/redux-users';
 
-USER AUTHENTICATION
-1. https://codeacademylt.sharepoint.com/sites/TypescriptTYPE13/_layouts/15/stream.aspx?id=%2Fsites%2FTypescriptTYPE13%2FShared%20Documents%2FGeneral%2FRecordings%2FTypeScript%20paskaitos%2D20230316%5F095252%2DMeeting%20Recording%2Emp4
-useRef - kad pasiimti is inputu reiksmes.
-2. create table inputs.
-3. create validations - registerForm - /plugins/validateEmail.
-4. fetch - /plugin/http - kad nereiktu kartoti servo visuose getuose ir postuose.
+USER AUTHENTICATION /// REGISTRACIJAU, AUTORIZACIJA(LOGIN), AUTENTIFIKACIJA
+0. LECTURE INFO.
+https://codeacademylt.sharepoint.com/sites/TypescriptTYPE13/_layouts/15/stream.aspx?id=%2Fsites%2FTypescriptTYPE13%2FShared%20Documents%2FGeneral%2FRecordings%2FTypeScript%20paskaitos%2D20230316%5F095252%2DMeeting%20Recording%2Emp4
+2. CREATE REGISTER TABLE INPUTS. USEREF - TO GET INPUT VALUE. PASS TO INPUT.
+3. CREATE INPUT VALIDATIONS SO IT CHECKS FOR TYPE MISTAKES ONCE A BUTTON ISPRESSED - registerForm - /plugins/validateEmail.
+4. FETCH DATA WHEN BUTTON IS PRESSED - /plugin/http - kad nereiktu kartoti servo visuose getuose ir postuose. ŽIŪRĖTI KODE.
 send user object data to suerver const res = await http.post(user, 'register');
-5. create server // GET USER OBJECT DATA FROM SERVER CONSOLE LOG AND SEND BACK ANSWER OK.
+//// BACKEND //////
+5. CREATE SERVER AND CONNECT WITH CLITENT SIDE // GET USER OBJECT DATA FROM SERVER CONSOLE LOG AND SEND BACK ANSWER OK.
+6. SUKURIAMI: EXPRESS ROUTER, MIDDLEWARE/VALIDATOR, CONTROLLERS.
+I routeri ateina requestas router.post('/register', validate, register); tada daliduojamas su middleware ir jei viskas gerai eina i controlllers-register.
+middleware - gaunami domenys i backenda ir is jo siunciami i middleware patikrinti ar viskas gerai. Jei ne tai atsakymas sorry,
+o jei viskas gerai duomenys persiunčiami į kontrolery.
+7. VALIDATIONS IN MIDDLEWARE.
+8. HASHED PASSWORDS IN CONTROLLERS.
+//// FRONTEND //////
+9. LOGIN TABLE. SAME AS REGISTER TABLE WITH VALIDTATIONS AND FETCH. BACK => CONTORLLERS/AUTH LOGIN.
+10. USER SECRET/TOKEN/ID USERIO AUTHENTIFICAVIMUI. ATSIUSTAS I FRONTENDA KAI USERIS SEKMINGAI PRISILOGINA. TOLIAU, KAI VARTOTOJAS NORES ATLIKTI KOKIUS VEIKSMUS BACKENDE MES PRASYSIM KAD BUTU ATSIUSTAS SEACRETAS. PVZ.: VARTOTOJAS NORI SUKURTI POSTA. TADA BUS PRASOMAS SECRET REQUESTAS IR PAGAL SECRETA BUS SUSIRANDAMAS USERI IS AREJAUS IR ZINOSIM, KAD BUTENT TOKS USERIS ATLIEKA TOKI VEIKSMA.
+11. SECRET SAVED IN LOCALSTORAGE. GET SECRET BY PRESSING BUTTON IN AUTHENTICATION PAGE.

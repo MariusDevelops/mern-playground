@@ -1,10 +1,11 @@
 import { useRef, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ErrorMessage from './ErrorMessage';
 import emailValidate from '../plugins/validateEmail';
 import http from '../plugins/http';
 
 const RegisterForm = () => {
+  const nav = useNavigate();
   const [getError, setError] = useState('');
 
   // USEREF - TO GET INPUT VALUE. PASS TO INPUT.
@@ -17,11 +18,11 @@ const RegisterForm = () => {
   const callFetch = async (user) => {
     const res = await http.post(user, 'register');
     console.log(res);
-    // if (!res.success) {
-    //   setError(res.message);
-    // } else {
-    //   nav('/');
-    // }
+    if (!res.success) {
+      setError(res.message);
+    } else {
+      nav('/authentication');
+    }
   };
 
   const validUser = () => {
