@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 import ErrorMessage from './ErrorMessage';
 import emailValidate from '../plugins/validateEmail';
-// import http from '../plugins/http';
+import http from '../plugins/http';
 
 const RegisterForm = () => {
   const [getError, setError] = useState('');
@@ -11,6 +11,18 @@ const RegisterForm = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordTwoRef = useRef();
+
+  // DUOMENU SIUNTIMAS I SERVERI
+  // fetch is a built-in JavaScript function that allows you to make network requests to retrieve resources from a server using HTTP protocol.
+  const callFetch = async (user) => {
+    const res = await http.post(user, 'register');
+    console.log(res);
+    // if (!res.success) {
+    //   setError(res.message);
+    // } else {
+    //   nav('/');
+    // }
+  };
 
   const validUser = () => {
     // CREATE OBJECT FROM INOPUT DATA
@@ -47,6 +59,9 @@ const RegisterForm = () => {
 
     // if(!hasUpperCase) return setError("Password should have at least one upper case letter")
     // if(!hasNumber) return setError("Password should have at least one number")
+
+    setError('');
+    return callFetch(user);
   };
 
   return (

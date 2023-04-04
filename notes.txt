@@ -1,2 +1,0 @@
-build my own full stack CRUD app (my-learning-app) using past lectures. Analyse and comment every step of process.
-

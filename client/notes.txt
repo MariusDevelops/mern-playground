@@ -36,3 +36,6 @@ USER AUTHENTICATION
 useRef - kad pasiimti is inputu reiksmes.
 2. create table inputs.
 3. create validations - registerForm - /plugins/validateEmail.
+4. fetch - /plugin/http - kad nereiktu kartoti servo visuose getuose ir postuose.
+send user object data to suerver const res = await http.post(user, 'register');
+5. create server // GET USER OBJECT DATA FROM SERVER CONSOLE LOG AND SEND BACK ANSWER OK.
